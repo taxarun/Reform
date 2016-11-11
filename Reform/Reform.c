@@ -88,12 +88,13 @@ void Reform_private(uint8_t *in, uint8_t *out, uint8_t codeOrDecode)
             reform[j + HALF_BIT_SIZE] = temp[i + 1];
         }
     }
+    free(temp);
     //Converting back to normal bytes
     for (size_t i = 0; i < SIZE; i++)
     {
         out[i] = binaryToDecimal(reform + BYTE * i);
     }
-    
+    free(reform);
 }
 
 uint8_t binaryToDecimal(uint8_t *byte)
